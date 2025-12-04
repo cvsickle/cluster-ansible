@@ -1,0 +1,8 @@
+proxmox:
+  hosts:
+    sv-fus:
+      ansible_host: 10.69.1.92
+    sv-ro:
+      ansible_host: 10.69.1.93
+    sv-dah:
+      ansible_host: 10.69.1.94

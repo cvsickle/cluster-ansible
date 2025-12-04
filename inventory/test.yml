@@ -1,0 +1,4 @@
+ungrouped:
+  hosts:
+    test:
+      ansible_host: 10.69.1.244
