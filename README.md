@@ -16,3 +16,8 @@ Run the `apt.yml` playbook on `test.yml` inventory:
 ```bash
 ansible-playbook ./playbooks/apt.yml --user corey --ask-become-pass -i ./inventory/test.yml
 ```
+
+Run all the playbooks in `run.yml` on the `test.yml` inventory:
+```bash
+ansible-playbook run.yml --user corey --ask-become-pass -i ./inventory/test.yml
+```

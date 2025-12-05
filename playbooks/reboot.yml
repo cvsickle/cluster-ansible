@@ -1,4 +1,5 @@
-- hosts: all
+- name: Reboot the host 
+  hosts: all
   become: yes
   tasks:
     - name: Reboot a slow machine that might have lots of updates to apply

@@ -1,0 +1,16 @@
+# setup the hosts
+---
+# Update & Upgrade
+- import_playbook: ./playbooks/apt.yml
+
+# Set timezone and ntp
+- import_playbook: ./playbooks/timezone.yml
+
+# Install qemu guest agent
+- import_playbook: ./playbooks/qemu-guest-agent.yml
+
+# Install iftop
+- import_playbook: ./playbooks/iftop.yml
+
+# Reboot
+- import_playbook: ./playbooks/reboot.yml
