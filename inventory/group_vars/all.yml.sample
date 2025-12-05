@@ -15,10 +15,10 @@ proxmoxuser: root
 nodeuser: username
 
 # bitwarden secret ids
-#bw_cluster_proxmox1pass: "5f461847-daea-468b-850c-b3aa01710595"
-#bw_cluster_proxmox2pass: "7c078979-a5a7-4d7e-a37b-b3aa0171ad9f"
-#bw_cluster_proxmox3pass: "870efa35-f42d-4652-8e08-b3aa0171e954"
-#bw_cluster_nodepass: "fdf57021-1573-4a82-80b0-b3aa01723467"
+#bw_cluster_proxmox1pass: "<secret_id>"
+#bw_cluster_proxmox2pass: "<secret_id>"
+#bw_cluster_proxmox3pass: "<secret_id>"
+#bw_cluster_nodepass: "<secret_id>"
 
 # get passwords from bitwarden
 #host1pass: "{{ lookup('bitwarden.secrets.lookup', bw_cluster_proxmox1pass) }}"
