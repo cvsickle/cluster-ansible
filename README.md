@@ -26,3 +26,8 @@ ansible-playbook ./playbooks/apt.yml --user username --ask-become-pass -i ./inve
 ```bash
 ansible-playbook run.yml --user username --ask-become-pass -i ./inventory/test.yml
 ```
+
+# Helpful References
+- [https://technotim.live/posts/ansible-automation/](https://technotim.live/posts/ansible-automation/)
+- [https://github.com/timothystewart6/launchpad](https://github.com/timothystewart6/launchpad)
+- [https://github.com/timothystewart6/k3s-ansible](https://github.com/timothystewart6/k3s-ansible)
