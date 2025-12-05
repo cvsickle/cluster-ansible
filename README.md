@@ -1,6 +1,16 @@
 # cluster-ansible
 Ansible setup for cluster provisioning
 
+# Variable setup
+
+Create a variable file from the sample:
+
+```bash
+cp ./inventory/group_vars/all.yml.sample ./inventory/group_vars/all.yml
+```
+
+Edit the variables to match the setup. Note, Bitwarden secrets can be used. See the commented out portions of the sample variables file. See [ansible-integration/](https://bitwarden.com/help/ansible-integration/) for more information.
+
 # Example Commands
 
 > [!NOTE]

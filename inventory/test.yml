@@ -1,4 +1,6 @@
 ungrouped:
   hosts:
     test:
-      ansible_host: 10.69.1.244
+      ansible_host: 10.69.1.191
+      ansible_user: "{{ nodeuser }}"
+      #ansible_password: "{{ nodepass }}"

@@ -1,8 +1,0 @@
-proxmox:
-  hosts:
-    node1:
-      ansible_host: 10.69.1.92
-    node2:
-      ansible_host: 10.69.1.93
-    node3:
-      ansible_host: 10.69.1.94

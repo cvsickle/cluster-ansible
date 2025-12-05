@@ -1,0 +1,14 @@
+proxmox:
+  hosts:
+    node1:
+      ansible_host: "{{ proxHost1 }}"
+      ansible_user: "{{ proxmoxuser }}"
+      ansible_password: "{{ host1pass }}"
+    node2:
+      ansible_host: "{{ proxHost2 }}"
+      ansible_user: "{{ proxmoxuser }}"
+      ansible_password: "{{ host2pass }}"
+    node3:
+      ansible_host: "{{ proxHost3 }}"
+      ansible_user: "{{ proxmoxuser }}"
+      ansible_password: "{{ host3pass }}"
