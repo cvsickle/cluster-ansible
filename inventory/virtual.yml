@@ -2,27 +2,15 @@ servers:
   hosts:
     cluster-server1:
       ansible_host: "{{ serverHost1 }}"
-      ansible_user: "{{ nodeuser }}"
-      #ansible_password: "{{ nodepass }}"
     cluster-server2:
       ansible_host: "{{ serverHost2 }}"
-      ansible_user: "{{ nodeuser }}"
-      #ansible_password: "{{ nodepass }}"
     cluster-server3:
       ansible_host: "{{ serverHost3 }}"
-      ansible_user: "{{ nodeuser }}"
-      #ansible_password: "{{ nodepass }}"
 workers:
-  host:
+  hosts:
     cluster-worker1:
       ansible_host: "{{ workerHost1 }}"
-      ansible_user: "{{ nodeuser }}"
-      #ansible_password: "{{ nodepass }}"
     cluster-worker2:
       ansible_host: "{{ workerHost2 }}"
-      ansible_user: "{{ nodeuser }}"
-      #ansible_password: "{{ nodepass }}"
     cluster-worker3:
       ansible_host: "{{ workerHost3 }}"
-      ansible_user: "{{ nodeuser }}"
-      #ansible_password: "{{ nodepass }}"
