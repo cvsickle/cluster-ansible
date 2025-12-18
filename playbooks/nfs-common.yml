@@ -1,0 +1,39 @@
+- name: install latest nfs-common
+  hosts: all
+  tasks:
+    - name: install nfs-common
+      apt:
+        name: nfs-common
+        state: present
+        update_cache: true
+      become: true
+
+- name: Configure NFS kernel modules to load at boot
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure /etc/modules-load.d directory exists
+      ansible.builtin.file:
+        path: /etc/modules-load.d
+        state: directory
+        mode: '0755'
+
+    - name: Copy nfs.conf to the target host
+      ansible.builtin.copy:
+        dest: /etc/modules-load.d/nfs.conf
+        content: |
+          # Load NFS kernel modules at boot
+          nfs
+          nfsd
+        owner: root
+        group: root
+        mode: '0644'
+      become: true
+
+    - name: Load modules immediately (without reboot)
+      community.general.modprobe:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nfs
+        - nfsd

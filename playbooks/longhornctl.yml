@@ -1,0 +1,41 @@
+- name: Install longhornctl command-line tool
+  hosts: localhost
+  connection: local
+  become: yes # Needed to move the file to /usr/local/bin
+  vars:
+    longhorn_version: v1.10.1 # https://github.com/longhorn/cli/releases
+    os_type: linux
+    arch_type: amd64
+    install_dir: /usr/local/bin
+    download_url: "https://github.com/longhorn/cli/releases/download/{{ longhorn_version }}/longhornctl-{{ os_type }}-{{ arch_type }}"
+    download_dest: "/tmp/longhornctl"
+    final_path: "{{ install_dir }}/longhornctl"
+  
+  tasks:
+    - name: Ensure the installation directory exists
+      ansible.builtin.file:
+        path: "{{ install_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Download the longhornctl binary
+      ansible.builtin.get_url:
+        url: "{{ download_url }}"
+        dest: "{{ download_dest }}"
+        mode: '0755' # Make the downloaded file executable
+
+    - name: Move the longhornctl binary to the final installation path
+      ansible.builtin.command:
+        cmd: mv {{ download_dest }} {{ final_path }}
+        creates: "{{ final_path }}" # Idempotency: only runs if the final file doesn't exist
+
+    - name: Verify the longhornctl installation
+      ansible.builtin.command:
+        cmd: longhornctl version
+      register: version_check
+      changed_when: false
+      check_mode: false
+
+    - name: Print the installed longhornctl version
+      ansible.builtin.debug:
+        var: version_check.stdout

@@ -12,5 +12,14 @@
 # Install iftop
 - import_playbook: ./playbooks/iftop.yml
 
+# Install nfs-common
+- import_playbook: ./playbooks/nfs-common.yml
+
+# Install cryptsetup
+- import_playbook: ./playbooks/cryptsetup.yml
+
+# Install cryptsetup
+- import_playbook: ./playbooks/multipathd.yml
+
 # Reboot
 - import_playbook: ./playbooks/reboot.yml

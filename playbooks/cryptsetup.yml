@@ -1,0 +1,37 @@
+- name: install latest cryptsetup
+  hosts: all
+  tasks:
+    - name: install cryptsetup
+      apt:
+        name: cryptsetup
+        state: present
+        update_cache: true
+      become: true
+
+- name: Configure dm_crypt kernel modules to load at boot
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure /etc/modules-load.d directory exists
+      ansible.builtin.file:
+        path: /etc/modules-load.d
+        state: directory
+        mode: '0755'
+
+    - name: Copy dm_crypt.conf to the target host
+      ansible.builtin.copy:
+        dest: /etc/modules-load.d/dm_crypt.conf
+        content: |
+          # Load dm_crypt kernel modules at boot
+          dm_crypt
+        owner: root
+        group: root
+        mode: '0644'
+      become: true
+
+    - name: Load modules immediately (without reboot)
+      community.general.modprobe:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - dm_crypt
