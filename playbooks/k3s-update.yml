@@ -1,0 +1,54 @@
+- name: Download k3s binary
+  hosts: localhost
+  connection: local
+  vars:
+    k3s_version: "v1.33.7+k3s1"
+    k3s_download_url: "https://github.com/k3s-io/k3s/releases/download/{{ k3s_version }}/k3s"
+  tasks:
+    - name: Download the file using get_url module
+      ansible.builtin.get_url:
+        url: "{{ k3s_download_url }}"
+        dest: "/tmp/k3s"
+      register: download_result
+      run_once: true
+
+- name: Copy the new k3s binary to the remote hosts
+  hosts: all
+  become: true
+  vars:
+    k3s_install_dir: "/usr/local/bin/k3s"
+  tasks:
+    - name: Copy file from local machine to remote machines
+      ansible.builtin.copy:
+        src: "/tmp/k3s"
+        dest: "{{ k3s_install_dir }}"
+        mode: '0755'
+
+- name: Delete the local k3s binary
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Remove the file
+      ansible.builtin.file:
+        path: "/tmp/k3s"
+        state: absent
+
+- name: Restart server nodes
+  hosts: servers
+  become: true
+  serial: 1
+  tasks:
+    - name: Restart the k3s service
+      ansible.builtin.systemd_service:
+        name: k3s
+        state: restarted
+
+- name: Restart worker nodes
+  hosts: workers
+  become: true
+  serial: 1
+  tasks:
+    - name: Restart the k3s-node service
+      ansible.builtin.systemd_service:
+        name: k3s-node
+        state: restarted

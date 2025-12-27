@@ -18,7 +18,7 @@
 # Install cryptsetup
 - import_playbook: ./playbooks/cryptsetup.yml
 
-# Install cryptsetup
+# Install multipathd
 - import_playbook: ./playbooks/multipathd.yml
 
 # Reboot

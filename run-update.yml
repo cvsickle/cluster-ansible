@@ -1,0 +1,4 @@
+# manually update k3s on the hosts
+---
+# run the update
+- import_playbook: ./playbooks/k3s-update.yml
