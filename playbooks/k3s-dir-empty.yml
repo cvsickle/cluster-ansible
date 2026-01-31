@@ -1,0 +1,16 @@
+- name: Ensure the etcd data directory is empty
+  hosts: servers
+  become: true
+  tasks:
+    - name: clear the agent sub directory
+      ansible.builtin.file:
+        path: /mnt/k3s/etcd/agent
+        state: absent
+    - name: clear the data sub directory
+      ansible.builtin.file:
+        path: /mnt/k3s/etcd/data
+        state: absent
+    - name: clear the server sub directory
+      ansible.builtin.file:
+        path: /mnt/k3s/etcd/server
+        state: absent

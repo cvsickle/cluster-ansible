@@ -21,5 +21,11 @@
 # Install multipathd
 - import_playbook: ./playbooks/multipathd.yml
 
+# Clear the etcd directory
+- import_playbook: ./playbooks/k3s-dir-empty.yml
+
+# Set the etcd directory
+- import_playbook: ./playbooks/k3s-dir-setup.yml
+
 # Reboot
 - import_playbook: ./playbooks/reboot.yml
