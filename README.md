@@ -1,7 +1,8 @@
 # cluster-ansible
 Ansible setup for cluster provisioning and maintenance.
 
-- Codeberg: [https://codeberg.org/CVSickle/cluster-ansible](https://codeberg.org/CVSickle/cluster-ansible)
+- Github: [https://github.com/cvsickle/cluster-ansible](https://github.com/cvsickle/cluster-ansible)
+- Codeberg: [https://codeberg.org/cvsickle/cluster-ansible](https://codeberg.org/CVSickle/cluster-ansible)
 
 # Variable setup
 
