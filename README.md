@@ -1,6 +1,8 @@
 # cluster-ansible
 Ansible setup for cluster provisioning and maintenance.
 
+- Codeberg: [https://codeberg.org/CVSickle/cluster-ansible](https://codeberg.org/CVSickle/cluster-ansible)
+
 # Variable setup
 
 Create a variable file from the sample:
