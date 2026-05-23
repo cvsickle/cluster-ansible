@@ -3,6 +3,7 @@ Ansible setup for cluster provisioning and maintenance.
 
 - Github: [https://github.com/cvsickle/cluster-ansible](https://github.com/cvsickle/cluster-ansible)
 - Codeberg: [https://codeberg.org/cvsickle/cluster-ansible](https://codeberg.org/CVSickle/cluster-ansible)
+- Forgejo (Mirror): [https://git.cvsickle.com/cvsickle/cluster-ansible](https://git.cvsickle.com/cvsickle/cluster-ansible)
 
 # Variable setup
 
